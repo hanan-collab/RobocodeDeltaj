@@ -14,8 +14,9 @@
         </groups>
       </features>
       <features minCardinality="1" maxCardinality="1" name="Gun">
-        <groups maxCardinality="1">
+        <groups maxCardinality="2">
           <features maxCardinality="1" name="MaximumPowerGun"/>
+          <features maxCardinality="1" name="NoFireGun"/>
         </groups>
       </features>
     </groups>

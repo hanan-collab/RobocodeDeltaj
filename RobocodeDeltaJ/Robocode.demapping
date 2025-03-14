@@ -6,3 +6,6 @@ SpinningRadar:
 
 MaximumPowerGun:
 <decore/MaximumPowerGun.decore>
+
+NoFireGun:
+<decore/NoFireGun.decore>
