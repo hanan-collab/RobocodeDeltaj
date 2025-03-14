@@ -1,0 +1,14 @@
+ configuration delta "HeadOnTargeting"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/Targeting.java>
+		{
+	addClassifierImport(<class:jab.module.Targeting>, "robocode.util.Utils");
+	modifyStatementListContainer(<method:jab.module.Targeting.target()>, "public void target() {
+            if (bot.enemy != null) {
+                double absoluteBearing = bot.getHeadingRadians() + bot.enemy.bearingRadians;
+                bot.setTurnGunRightRadians(Utils.normalRelativeAngle(absoluteBearing - bot.getGunHeadingRadians()));
+            }
+	}
+", "HeadOnTargeting", false);
+	}
+	

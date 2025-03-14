@@ -1,0 +1,23 @@
+ configuration delta "Closest"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/SelectEnemy.java>
+		{
+	addClassifierImport(<class:jab.module.SelectEnemy>, "java.util.Iterator");
+	addClassifierImport(<class:jab.module.SelectEnemy>, "jab.module.BotInfo");
+	modifyStatementListContainer(<method:jab.module.SelectEnemy.select()>, "public void select() {
+            Iterator<BotInfo> iterator = bot.botsInfo.values().iterator();
+            double minDistance = Double.MAX_VALUE;
+            BotInfo selected = null;
+
+            while (iterator.hasNext()) {
+                BotInfo botInfo = iterator.next();
+                if (!botInfo.teammate && minDistance > botInfo.distance) {
+                    selected = botInfo;
+                    minDistance = botInfo.distance;
+                }
+            }
+            bot.enemy = selected;
+	}
+", "Closest", false);
+	}
+	

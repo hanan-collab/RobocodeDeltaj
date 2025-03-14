@@ -1,0 +1,21 @@
+ configuration delta "Cornering"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/Movement.java>
+		{
+	addClassifierImport(<class:jab.module.Movement>, "robocode.HitWallEvent");
+	addClassifierImport(<class:jab.module.Movement>, "robocode.Event");
+	addMember(<class:jab.module.Movement>, "int turnRightValue = 45;
+");
+	modifyStatementListContainer(<method:jab.module.Movement.move()>, "public void move() {
+            bot.setMaxVelocity(8);
+            bot.setAhead(10000);
+	}
+", "Cornering", false);
+	addMember(<class:jab.module.Movement>, "listen(Event e) {
+            if (e instanceof HitWallEvent) {
+                bot.setTurnRight(turnRightValue);
+            }
+        }
+");
+	}
+	

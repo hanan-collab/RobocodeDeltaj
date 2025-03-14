@@ -1,0 +1,10 @@
+ configuration delta "CeaseFire"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/Gun.java>
+		{
+	modifyStatementListContainer(<method:jab.module.Gun.fire()>, "public void fire() {
+            bot.bulletPower = 0;
+	}
+", "CeaseFire", false);
+	}
+	

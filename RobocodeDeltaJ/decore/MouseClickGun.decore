@@ -1,0 +1,34 @@
+ configuration delta "MouseClickGun"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/Gun.java>
+		{
+	addClassifierImport(<class:jab.module.Gun>, "java.awt.event.InputEvent");
+	addClassifierImport(<class:jab.module.Gun>, "java.awt.event.MouseEvent");
+	addClassifierImport(<class:jab.module.Gun>, "robocode.Bullet");
+	modifyStatementListContainer(<method:jab.module.Gun.fire()>, "public void fire() {
+            if (bot.bulletPower > 0 && bot.getGunHeat() == 0) {
+                Bullet b = bot.setFireBullet(bot.bulletPower);
+                bot.registerBullet(b);
+            }
+	}
+", "MouseClickGun", false);
+	addMember(<class:jab.module.Gun>, "listenInput(InputEvent e) {
+            if (e instanceof MouseEvent) {
+                if (e.getID() == MouseEvent.MOUSE_PRESSED) {
+                    if (((MouseEvent) e).getButton() == MouseEvent.BUTTON3) {
+                        bot.bulletPower = 3;
+                    } else if (((MouseEvent) e).getButton() == MouseEvent.BUTTON2) {
+                        bot.bulletPower = 2;
+                    } else {
+                        bot.bulletPower = 1;
+                    }
+                }
+
+                if (e.getID() == MouseEvent.MOUSE_RELEASED) {
+                    bot.bulletPower = 0;
+                }
+            }
+        }
+");
+	}
+	

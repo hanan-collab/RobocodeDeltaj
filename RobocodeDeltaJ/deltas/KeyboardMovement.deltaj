@@ -1,0 +1,50 @@
+delta KeyboardMovement {
+    modifies jab.module.Movement {
+        adds import java.awt.event.InputEvent;
+        adds import java.awt.event.KeyEvent;
+
+        adds int moveDirection;
+        adds int turnDirection;
+        adds double moveAmount;
+
+        modifies move() {
+            bot.setAhead(moveAmount * moveDirection);
+            moveAmount = Math.max(0, moveAmount - 1);
+            bot.setTurnRight(45 * turnDirection);
+        }
+
+        adds listenInput(InputEvent e) {
+            if (e instanceof KeyEvent) {
+                if (((KeyEvent) e).getID() == KeyEvent.KEY_PRESSED) {
+                    switch (((KeyEvent) e).getKeyCode()) {
+                        case KeyEvent.VK_UP:
+                            moveDirection = 1;
+                            moveAmount = Double.POSITIVE_INFINITY;
+                            break;
+                        case KeyEvent.VK_DOWN:
+                            moveDirection = -1;
+                            moveAmount = Double.POSITIVE_INFINITY;
+                            break;
+                        case KeyEvent.VK_RIGHT:
+                            turnDirection = 1;
+                            break;
+                        case KeyEvent.VK_LEFT:
+                            turnDirection = -1;
+                            break;
+                    }
+                } else if (((KeyEvent) e).getID() == KeyEvent.KEY_RELEASED) {
+                    switch (((KeyEvent) e).getKeyCode()) {
+                        case KeyEvent.VK_UP:
+                        case KeyEvent.VK_DOWN:
+                            moveDirection = 0;
+                            break;
+                        case KeyEvent.VK_RIGHT:
+                        case KeyEvent.VK_LEFT:
+                            turnDirection = 0;
+                            break;
+                    }
+                }
+            }
+        }
+    }
+}
