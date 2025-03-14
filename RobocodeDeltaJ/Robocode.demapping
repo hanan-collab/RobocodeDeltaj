@@ -39,3 +39,6 @@ Cornering:
 
 KeyboardMovement:
 <decore/KeyboardMovement.decore>
+
+NearTargeting:
+<decore/NearTargeting.decore>

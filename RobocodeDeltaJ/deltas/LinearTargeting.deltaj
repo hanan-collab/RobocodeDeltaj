@@ -38,7 +38,7 @@ delta LinearTargeting {
         adds int toPaintX = 0;
         adds int toPaintY = 0;
 
-        adds onPaint(Graphics2D g) {
+        adds public void onPaint(Graphics2D g) {
             if (bot.enemy != null) {
                 g.setColor(Color.red);
                 g.drawOval(toPaintX - 4, toPaintY - 4, 8, 8);

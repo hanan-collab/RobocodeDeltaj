@@ -11,7 +11,7 @@
             bot.setAhead(10000);
 	}
 ", "Cornering", false);
-	addMember(<class:jab.module.Movement>, "listen(Event e) {
+	addMember(<class:jab.module.Movement>, "public void listen(Event e) {
             if (e instanceof HitWallEvent) {
                 bot.setTurnRight(turnRightValue);
             }

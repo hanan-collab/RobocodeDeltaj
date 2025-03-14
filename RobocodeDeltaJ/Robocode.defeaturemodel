@@ -13,6 +13,7 @@
           <features maxCardinality="1" name="HeadOnTargeting"/>
           <features maxCardinality="1" name="LinearTargeting"/>
           <features maxCardinality="1" name="MouseTargeting"/>
+          <features maxCardinality="1" name="NearTargeting"/>
         </groups>
       </features>
       <features minCardinality="1" maxCardinality="1" name="Movement">

@@ -12,7 +12,7 @@
             }
 	}
 ", "MouseClickGun", false);
-	addMember(<class:jab.module.Gun>, "listenInput(InputEvent e) {
+	addMember(<class:jab.module.Gun>, "public void listenInput(InputEvent e) {
             if (e instanceof MouseEvent) {
                 if (e.getID() == MouseEvent.MOUSE_PRESSED) {
                     if (((MouseEvent) e).getButton() == MouseEvent.BUTTON3) {

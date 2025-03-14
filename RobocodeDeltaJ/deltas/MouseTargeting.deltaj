@@ -14,14 +14,14 @@ delta MouseTargeting {
             bot.setTurnGunRightRadians(Utils.normalRelativeAngle(angle - bot.getGunHeadingRadians()));
         }
 
-        adds listenInput(InputEvent e) {
+        adds public void listenInput(InputEvent e) {
             if (e instanceof MouseEvent) {
                 aimX = ((MouseEvent) e).getX();
                 aimY = ((MouseEvent) e).getY();
             }
         }
 
-        adds onPaint(Graphics2D g) {
+        adds public void onPaint(Graphics2D g) {
             g.setColor(Color.RED);
             g.drawOval(aimX - 15, aimY - 15, 30, 30);
             g.drawLine(aimX, aimY - 4, aimX, aimY + 4);

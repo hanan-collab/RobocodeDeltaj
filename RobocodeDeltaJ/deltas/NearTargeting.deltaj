@@ -1,0 +1,16 @@
+delta NearTargeting {
+    modifies jab.module.Targeting {
+    	adds import robocode.util.Utils;
+        modifies target() {
+            if (bot.enemy != null) {
+                double absoluteBearing = bot.getHeadingRadians() + bot.enemy.bearingRadians;
+                double relativeBearing = Utils.normalRelativeAngle(absoluteBearing - bot.getGunHeadingRadians());
+
+                // Only target if the enemy is roughly to the left (-90 degrees) or right (90 degrees)
+                if (Math.abs(relativeBearing) > Math.PI / 4 && Math.abs(relativeBearing) < 3 * Math.PI / 4) {
+                    bot.setTurnGunRightRadians(relativeBearing);
+                }
+            }
+        }
+    }
+}

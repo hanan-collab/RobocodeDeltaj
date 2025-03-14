@@ -10,7 +10,7 @@ delta Cornering {
             bot.setAhead(10000);
         }
 
-        adds listen(Event e) {
+        adds public void listen(Event e) {
             if (e instanceof HitWallEvent) {
                 bot.setTurnRight(turnRightValue);
             }

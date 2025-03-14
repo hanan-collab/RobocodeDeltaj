@@ -13,7 +13,7 @@ delta KeyboardMovement {
             bot.setTurnRight(45 * turnDirection);
         }
 
-        adds listenInput(InputEvent e) {
+        adds public void listenInput(InputEvent e) {
             if (e instanceof KeyEvent) {
                 if (((KeyEvent) e).getID() == KeyEvent.KEY_PRESSED) {
                     switch (((KeyEvent) e).getKeyCode()) {

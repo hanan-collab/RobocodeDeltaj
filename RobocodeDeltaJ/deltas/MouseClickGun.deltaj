@@ -11,7 +11,7 @@ delta MouseClickGun {
             }
         }
 
-        adds listenInput(InputEvent e) {
+        adds public void listenInput(InputEvent e) {
             if (e instanceof MouseEvent) {
                 if (e.getID() == MouseEvent.MOUSE_PRESSED) {
                     if (((MouseEvent) e).getButton() == MouseEvent.BUTTON3) {

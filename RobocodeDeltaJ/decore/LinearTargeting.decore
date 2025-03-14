@@ -40,7 +40,7 @@
 ");
 	addMember(<class:jab.module.Targeting>, "int toPaintY = 0;
 ");
-	addMember(<class:jab.module.Targeting>, "onPaint(Graphics2D g) {
+	addMember(<class:jab.module.Targeting>, "public void onPaint(Graphics2D g) {
             if (bot.enemy != null) {
                 g.setColor(Color.red);
                 g.drawOval(toPaintX - 4, toPaintY - 4,8,8);

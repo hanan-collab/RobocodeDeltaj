@@ -10,7 +10,7 @@ delta Line {
             bot.setAhead(10000 * moveDirection);
         }
 
-        adds listen(Event e) {
+        adds public void listen(Event e) {
             if (e instanceof HitWallEvent) {
                 moveDirection *= -1;
             }

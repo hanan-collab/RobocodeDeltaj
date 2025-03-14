@@ -16,14 +16,14 @@
             bot.setTurnGunRightRadians(Utils.normalRelativeAngle(angle - bot.getGunHeadingRadians()));
 	}
 ", "MouseTargeting", false);
-	addMember(<class:jab.module.Targeting>, "listenInput(InputEvent e) {
+	addMember(<class:jab.module.Targeting>, "public void listenInput(InputEvent e) {
             if (e instanceof MouseEvent) {
                 aimX = ((MouseEvent) e).getX();
                 aimY = ((MouseEvent) e).getY();
             }
         }
 ");
-	addMember(<class:jab.module.Targeting>, "onPaint(Graphics2D g) {
+	addMember(<class:jab.module.Targeting>, "public void onPaint(Graphics2D g) {
             g.setColor(Color.RED);
             g.drawOval(aimX - 15, aimY - 15,30,30);
             g.drawLine(aimX, aimY - 4, aimX, aimY + 4);

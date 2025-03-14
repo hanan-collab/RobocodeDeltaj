@@ -16,7 +16,7 @@
             bot.setTurnRight(45 * turnDirection);
 	}
 ", "KeyboardMovement", false);
-	addMember(<class:jab.module.Movement>, "listenInput(InputEvent e) {
+	addMember(<class:jab.module.Movement>, "public void listenInput(InputEvent e) {
             if (e instanceof KeyEvent) {
                 if (((KeyEvent) e).getID() == KeyEvent.KEY_PRESSED) {
                     switch (((KeyEvent) e).getKeyCode()) {
