@@ -1,8 +1,9 @@
 package jab.module;
 
+import robocode.Rules;
+import robocode.Bullet;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
-import robocode.Bullet;
 
 /**
  * Gun
@@ -26,17 +27,12 @@ public class Gun extends Part {
 
 	public void listenInput(InputEvent e) {
 		if (e instanceof MouseEvent) {
-			if (e.getID() == MouseEvent.MOUSE_PRESSED) {
-				if (((MouseEvent) e).getButton() == MouseEvent.BUTTON3) {
-					bot.bulletPower = 3;
-				} else if (((MouseEvent) e).getButton() == MouseEvent.BUTTON2) {
-					bot.bulletPower = 2;
-				} else {
-					bot.bulletPower = 1;
-				}
+			MouseEvent me = (MouseEvent) e;
+			if (me.getID() == MouseEvent.MOUSE_PRESSED && me.getClickCount() == 2) {
+				bot.bulletPower = 1;
 			}
 
-			if (e.getID() == MouseEvent.MOUSE_RELEASED) {
+			if (me.getID() == MouseEvent.MOUSE_RELEASED) {
 				bot.bulletPower = 0;
 			}
 		}
