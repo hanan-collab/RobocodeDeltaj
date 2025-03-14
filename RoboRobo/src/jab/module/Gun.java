@@ -1,6 +1,7 @@
 package jab.module;
 
-import robocode.Rules;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseEvent;
 import robocode.Bullet;
 
 /**
@@ -17,15 +18,26 @@ public class Gun extends Part {
 	}
 
 	public void fire() {
-		if (bot.enemy != null) {
-			double bulletPower = Math.min(Rules.MAX_BULLET_POWER, bot.getEnergy() - 0.01);
-			if (bot.enemy.energy == 0) {
-				bulletPower = 0;
+		if (bot.bulletPower > 0 && bot.getGunHeat() == 0) {
+			Bullet b = bot.setFireBullet(bot.bulletPower);
+			bot.registerBullet(b);
+		}
+	}
+
+	public void listenInput(InputEvent e) {
+		if (e instanceof MouseEvent) {
+			if (e.getID() == MouseEvent.MOUSE_PRESSED) {
+				if (((MouseEvent) e).getButton() == MouseEvent.BUTTON3) {
+					bot.bulletPower = 3;
+				} else if (((MouseEvent) e).getButton() == MouseEvent.BUTTON2) {
+					bot.bulletPower = 2;
+				} else {
+					bot.bulletPower = 1;
+				}
 			}
-			bot.bulletPower = bulletPower;
-			if (bot.getGunHeat() == 0) {
-				Bullet b = bot.setFireBullet(bulletPower);
-				bot.registerBullet(b);
+
+			if (e.getID() == MouseEvent.MOUSE_RELEASED) {
+				bot.bulletPower = 0;
 			}
 		}
 	}

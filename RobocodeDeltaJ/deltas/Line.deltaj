@@ -1,0 +1,19 @@
+delta Line {
+    modifies jab.module.Movement {
+        adds import robocode.HitWallEvent;
+        adds import robocode.Event;
+
+        adds int moveDirection = 1;
+
+        modifies move() {
+            bot.setMaxVelocity(8);
+            bot.setAhead(10000 * moveDirection);
+        }
+
+        adds public void listen(Event e) {
+            if (e instanceof HitWallEvent) {
+                moveDirection *= -1;
+            }
+        }
+    }
+}
