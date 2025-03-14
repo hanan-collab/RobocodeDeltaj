@@ -1,4 +1,4 @@
-delta Shotgun {
+delta MaximumPowerGun {
 	modifies jab.module.Gun {
 		adds import robocode.Rules;
 		adds import robocode.Bullet;

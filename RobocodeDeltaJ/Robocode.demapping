@@ -4,5 +4,5 @@ NoMovement:
 SpinningRadar:
 <decore/SpinningRadar.decore>
 
-Shotgun:
-<decore/Shotgun.decore>
+MaximumPowerGun:
+<decore/MaximumPowerGun.decore>

@@ -1,4 +1,4 @@
- configuration delta "Shotgun"
+ configuration delta "MaximumPowerGun"
 	dialect <http://www.emftext.org/java>
 		modifies <../src/jab/module/Gun.java>
 		{
@@ -17,6 +17,6 @@
 				}
 			}
 	}
-", "Shotgun", false);
+", "MaximumPowerGun", false);
 	}
 	
