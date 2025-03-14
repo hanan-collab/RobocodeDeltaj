@@ -8,13 +8,13 @@ MaximumPowerGun:
 <decore/MaximumPowerGun.decore>
 
 NoFireGun:
-<decore/NoFireGun.decore>
+<decore/CeaseFire.decore>
 
 WeakestSelectEnemy:
-<decore/WeakestSelectEnemy.decore>
+<decore/Weakest.decore>
 
 StrongestSelectEnemy:
-<decore/StrongestSelectEnemy.decore>
+<decore/Strongest.decore>
 
 LinearTargeting:
 <decore/LinearTargeting.decore>
@@ -23,10 +23,19 @@ MouseTargeting:
 <decore/MouseTargeting.decore>
 
 ClosestSelectEnemy:
-<decore/ClosestSelectEnemy.decore>
+<decore/Closest.decore>
 
 MouseClickGun:
 <decore/MouseClickGun.decore>
 
 KeyboardMovement:
 <decore/KeyboardMovement.decore>
+
+Cornering:
+<decore/Cornering.decore>
+
+Line:
+<decore/Line.decore>
+
+ForwardBackward:
+<decore/ForwardBackward.decore>

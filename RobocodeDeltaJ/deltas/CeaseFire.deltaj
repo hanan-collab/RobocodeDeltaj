@@ -1,4 +1,4 @@
-delta NoFireGun {
+delta CeaseFire {
 
 	modifies jab.module.Gun {
 	

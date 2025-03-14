@@ -1,5 +1,8 @@
 package jab.module;
 
+import robocode.Rules;
+import robocode.Bullet;
+
 /**
  * Gun
  * 
@@ -14,7 +17,17 @@ public class Gun extends Part {
 	}
 
 	public void fire() {
-		bot.bulletPower = 0;
+		if (bot.enemy != null) {
+			double bulletPower = Math.min(Rules.MAX_BULLET_POWER, bot.getEnergy() - 0.01);
+			if (bot.enemy.energy == 0) {
+				bulletPower = 0;
+			}
+			bot.bulletPower = bulletPower;
+			if (bot.getGunHeat() == 0) {
+				Bullet b = bot.setFireBullet(bulletPower);
+				bot.registerBullet(b);
+			}
+		}
 	}
 
 }

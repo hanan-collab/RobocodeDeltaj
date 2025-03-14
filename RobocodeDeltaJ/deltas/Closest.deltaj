@@ -1,4 +1,4 @@
-delta ClosestSelectEnemy {
+delta Closest {
 
 	modifies jab.module.SelectEnemy{
 	
