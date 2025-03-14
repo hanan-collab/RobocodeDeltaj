@@ -1,0 +1,8 @@
+delta CeaseFire {
+    modifies jab.module.Gun {
+
+        modifies fire() {
+            bot.bulletPower = 0;
+        }
+    }
+}
