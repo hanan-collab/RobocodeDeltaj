@@ -1,0 +1,31 @@
+delta Circle {
+
+	modifies jab.module.Movement {
+	
+		adds import robocode.AdvancedRobot;
+		adds import robocode.Condition;
+		adds import robocode.Event;
+		adds import robocode.HitWallEvent;
+		adds import robocode.MoveCompleteCondition;
+		adds import robocode.TurnCompleteCondition;
+		
+		 adds private int moveDirection = 1;
+		 adds private int lastTurnDirection = 1; 
+		 adds private static final int MOVE_DISTANCE = 400; 
+		 
+		 modifies move(){
+			 bot.setMaxVelocity(8);
+			 bot.setAhead(MOVE_DISTANCE * moveDirection);
+			 bot.setTurnRight(90);
+	
+	        
+		 }
+		 
+		 adds public void listen(Event e) {
+	        if (e instanceof HitWallEvent) {
+	           bot.setTurnRight(90);
+	        }
+    	}
+	}
+}	
+

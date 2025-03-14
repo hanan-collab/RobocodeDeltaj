@@ -37,5 +37,5 @@ Cornering:
 Line:
 <decore/Line.decore>
 
-ForwardBackward:
-<decore/ForwardBackward.decore>
+Circle:
+<decore/Circle.decore>
