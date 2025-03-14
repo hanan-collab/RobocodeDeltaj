@@ -42,3 +42,6 @@ Cornering:
 
 KeyboardMovement:
 <decore/KeyboardMovement.decore>
+
+FurthestEnemy:
+<decore/FurthestEnemy.decore>

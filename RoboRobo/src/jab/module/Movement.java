@@ -18,14 +18,14 @@ public class Movement extends Part {
 
 	public void move() {
 		bot.setMaxVelocity(8);
-		bot.setAhead(10000 * moveDirection);
+		bot.setAhead(10000);
 	}
 
-	int moveDirection = 1;
+	int turnRightValue = 45;
 
 	public void listen(Event e) {
 		if (e instanceof HitWallEvent) {
-			moveDirection *= -1;
+			bot.setTurnRight(turnRightValue);
 		}
 	}
 
