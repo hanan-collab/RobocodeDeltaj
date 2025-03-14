@@ -1,0 +1,29 @@
+delta DoubleClickGun {
+	modifies jab.module.Gun {
+		adds import robocode.Rules;
+		adds import robocode.Bullet;
+		adds import java.awt.event.InputEvent;
+		adds import java.awt.event.MouseEvent;
+		
+		modifies fire() {
+			if (bot.bulletPower > 0 && bot.getGunHeat() == 0) {
+				Bullet b = bot.setFireBullet(bot.bulletPower);
+				bot.registerBullet(b);
+			}
+		}
+		
+		adds public void listenInput(InputEvent e) {
+			if (e instanceof MouseEvent) {
+                MouseEvent me = (MouseEvent) e;
+                if (me.getID() == MouseEvent.MOUSE_PRESSED && me.getClickCount() == 2) {
+                    bot.bulletPower = 1;
+                }
+
+                if (me.getID() == MouseEvent.MOUSE_RELEASED) {
+                    bot.bulletPower = 0;
+                }
+            }
+		}
+	
+	}
+}

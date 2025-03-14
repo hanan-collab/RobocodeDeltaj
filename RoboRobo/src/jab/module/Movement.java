@@ -1,5 +1,8 @@
 package jab.module;
 
+import robocode.HitWallEvent;
+import robocode.Event;
+
 /**
  * Movement
  * 
@@ -14,7 +17,16 @@ public class Movement extends Part {
 	}
 
 	public void move() {
-		bot.setAhead(0.0002);
+		bot.setMaxVelocity(8);
+		bot.setAhead(10000 * moveDirection);
+	}
+
+	int moveDirection = 1;
+
+	public void listen(Event e) {
+		if (e instanceof HitWallEvent) {
+			moveDirection *= -1;
+		}
 	}
 
 }
